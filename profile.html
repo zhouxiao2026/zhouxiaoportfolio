@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiao Zhou, Ph.D. | Professor of Fudan University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+            color: #1a1a1a;
+        }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .tooltip {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px) translateX(-50%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tooltip.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) translateX(-50%);
+        }
+        .hover-trigger {
+            position: relative;
+            cursor: help;
+            border-bottom: 2px dotted #3b82f6;
+            transition: all 0.3s ease;
+        }
+        .hover-trigger:hover {
+            color: #2563eb;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-bottom-style: solid;
+        }
+        .section-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .section-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+            border-color: #3b82f6;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Floating Tooltip -->
+    <div id="global-tooltip" class="tooltip fixed z-50 bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-2xl max-w-xs text-center pointer-events-none">
+        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-slate-900"></div>
+        <span id="tooltip-text"></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-40">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold serif gradient-text">Xiao Zhou</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+                <a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
+                <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#publications" class="hover:text-blue-600 transition-colors">Publications</a>
+                <a href="#students" class="hover:text-blue-600 transition-colors">Students</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-8 animate-fade-in">
+                <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+                    <span class="hover-trigger" data-cn="复旦大学新闻学院教授">Professor of Journalism School</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold serif mb-6 leading-tight">
+                    Dr. <span class="hover-trigger" data-cn="周晓">Xiao Zhou</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+                    <span class="hover-trigger" data-cn="新媒体管理、创意产业">New Media Management & Creative Industries</span> Researcher. 
+                    President of <span class="hover-trigger" data-cn="中国新媒体管理专业委员会">China New Media Management Professional Committee</span>.
+                    Dedicated to exploring the intersection of media economics, platform governance, and digital innovation.
+                </p>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span class="hover-trigger" data-cn="上海市国定路400号，邮编200433">No.400 Guo Ding Road, Shanghai</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        zhouxiao@fudan.edu.cn
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-4 animate-fade-in delay-100">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop" alt="Professor Portrait" class="relative rounded-2xl shadow-2xl w-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="border-y border-gray-200 bg-white py-12 mb-20">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class
